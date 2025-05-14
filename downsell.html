@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual da Sedução Imediata - Downsell Exclusivo</title>
+  <link rel="stylesheet" href="upsell2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HERO HEADER -->
+  <header class="hero-section premium visible">
+    <div class="container">
+      <h1 class="headline gradient-text">VOCÊ RECUSOU AS OFERTAS PRINCIPAIS... MAS AINDA TEM UMA CHANCE</h1>
+      <p class="subheadline shimmer">Essa é sua última oportunidade de dominar a mente dela com um método direto, rápido e brutalmente eficiente.</p>
+    </div>
+  </header>
+
+  <!-- IMAGEM DE CAPA -->
+  <section class="premium-video visible">
+    <div class="container">
+      <img class="video-box glow" src="downsell.png" alt="Manual da Sedução Imediata" />
+    </div>
+  </section>
+
+  <!-- CONTEÚDO DO MANUAL -->
+  <section class="premium-hacks visible">
+    <div class="container">
+      <h2 class="gradient-text">O Que Está Dentro Deste Manual</h2>
+      <ul class="hacks-list">
+        <li><strong>Mensagem Psicocodificada:</strong> A frase exata que dispara atração em minutos (testada em +1200 conversas).</li>
+        <li><strong>Comando Visual Rápido:</strong> Como se posicionar visualmente para ela se sentir hipnotizada.</li>
+        <li><strong>Detonador de Tesão Emocional:</strong> Técnica rápida para causar excitação mental antes mesmo do toque.</li>
+        <li><strong>Reação Instantânea de Interesse:</strong> O segredo para disparar curiosidade e urgência no primeiro contato.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OFERTA DOWNSALE -->
+  <section class="oferta-premium visible">
+    <div class="container">
+      <h2 class="shine">OFERTA FINAL: NUNCA MAIS DISPONÍVEL</h2>
+      <p class="preco-texto">De <span class="preco-antigo">R$97,00</span> por apenas <span class="preco-atual">R$19,00</span></p>
+      <p class="urgencia pulse">Clique agora ou essa chance desaparece pra sempre.</p>
+      <div id="countdown" class="countdown shimmer"></div>
+      <a href="#" class="btn-premium pulse">LIBERAR AGORA</a>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="garantia-premium visible">
+    <div class="container">
+      <h2>Garantia Incondicional de 7 Dias</h2>
+      <p>Você tem 7 dias para testar tudo. Se não servir pra você, devolvemos. Simples.</p>
+      <img src="garantia-premium.png" alt="Selo de Garantia Premium" class="garantia-img" />
+    </div>
+  </section>
+
+  <!-- FAQ - CONTEÚDO DO MANUAL -->
+  <section class="faq-premium visible">
+    <div class="container">
+      <h2 class="gradient-text">Dentro do Manual da Sedução Imediata, Você Vai Aprender:</h2>
+      <div class="faq-item">
+        <h3 class="faq-question">1. Como causar impacto emocional imediato</h3>
+        <div class="faq-answer">Você vai aprender como ativar os gatilhos mentais que fazem ela te notar e não esquecer.</div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">2. O que dizer e como dizer</h3>
+        <div class="faq-answer">Não importa se você é tímido. Esse manual mostra exatamente como construir frases que viram desejo.</div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">3. Como usar o tempo a seu favor</h3>
+        <div class="faq-answer">A maioria dos caras estraga tudo tentando acelerar. Você vai aprender a usar o tempo como isca.</div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">4. Técnicas práticas em menos de 10 minutos</h3>
+        <div class="faq-answer">Nada de teoria inútil. Você aplica e vê resultado. Rápido.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-premium">
+    <div class="container">
+      <p>&copy; 2025 Manual da Sedução Imediata. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal Elements
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.visible').forEach(el => observer.observe(el));
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.classList.toggle('active');
+        const answer = q.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Countdown Timer
+    const end = new Date();
+    end.setMinutes(end.getMinutes() + 60);
+    const countdown = document.getElementById('countdown');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = end - now;
+      if (diff <= 0) {
+        countdown.innerHTML = "Oferta encerrada";
+        return;
+      }
+      const h = Math.floor(diff / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      countdown.innerHTML = `Termina em: ${h}h ${m}m ${s}s`;
+    }
+    setInterval(updateCountdown, 1000);
+  </script>
+<script>
+    /* Added script to update visibility detection */
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.visible').forEach(el => observer.observe(el));
+  });
+  </script>
+</body>
+</html>
