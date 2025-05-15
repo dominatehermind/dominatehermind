@@ -47,7 +47,8 @@
       <p class="preco-texto">De <span class="preco-antigo">R$197,00</span> por apenas <span class="preco-atual">R$49,90</span></p>
       <p class="urgencia pulse">Você vai se arrepender se sair desta página agora.</p>
       <div id="countdown" class="countdown shimmer"></div>
-      <a href="https://pay.kirvano.com/84136130-92cb-4cf9-8a31-89ce67c43cc9" class="btn-premium pulse">QUERO DOMINAR AGORA</a>
+      <a href="#" class="btn-premium pulse kirvano-payment-trigger">QUERO DOMINAR AGORA</a>
+      <p class="recusar-oferta"><a href="#" class="kirvano-refuse-trigger">Não, obrigado. Quero recusar esta oferta.</a></p>
     </div>
   </section>
 
@@ -86,6 +87,10 @@
   <footer class="footer-premium">
     <div class="container">
       <p>&copy; 2025 Ultimate Seduction System. Todos os direitos reservados.</p>
+      <div class="botoes-footer">
+        <button class="btn-aceitar kirvano-payment-trigger">SIM, QUERO ACESSAR AGORA</button>
+        <a href="#" class="link-recusar kirvano-refuse-trigger">Recusar esta oferta</a>
+      </div>
     </div>
   </footer>
 
@@ -127,6 +132,14 @@
     }
     setInterval(updateCountdown, 1000);
   </script>
+
+  <!-- Script da Kirvano já presente no código original -->
+  <script>
+    var offer = "84136130-92cb-4cf9-8a31-89ce67c43cc9";
+    var nextPageURL = "https://pay.kirvano.com/84136130-92cb-4cf9-8a31-89ce67c43cc9";
+    var refusePageURL = "https://dominatehermind.github.io/dominatehermind/downsell.html";
+  </script>
+  <script src="https://snippets.kirvano.com/upsell.min.js"></script>
 
 </body>
 </html>
