@@ -18,8 +18,7 @@
     </script>
     <script src="https://snippets.kirvano.com/upsell.min.js"></script>
     <style>
-          /* Estilo para botão principal de aceitar oferta */
-        .btn-upsell.kirvano-payment-trigger {
+       .btn-upsell.kirvano-payment-trigger {
             display: inline-block;
             background: linear-gradient(135deg, #FF6B6B, #FF8E53);
             color: white !important;
@@ -86,37 +85,28 @@
         /* Estilo para botão de recusa */
         .kirvano-refuse-trigger {
             display: inline-block;
-            background-color: transparent;
-            color: #777 !important;
-            font-size: 15px;
-            padding: 12px 24px;
+            background: linear-gradient(135deg, #f2f2f2, #e6e6e6);
+            color: #555 !important;
+            font-size: 14px;
+            padding: 10px 20px;
             margin-top: 15px;
-            border: 1px solid #ddd;
             border-radius: 6px;
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 400;
-            position: relative;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .kirvano-refuse-trigger:hover {
-            background-color: #f9f9f9;
-            color: #555 !important;
+            background: linear-gradient(135deg, #e6e6e6, #d9d9d9);
+            color: #333 !important;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
         
-        .kirvano-refuse-trigger::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #555;
-            transition: width 0.3s ease;
-        }
-        
-        .kirvano-refuse-trigger:hover::before {
-            width: 100%;
+        .kirvano-refuse-trigger:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         /* Controle de responsividade */
