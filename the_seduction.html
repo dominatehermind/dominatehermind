@@ -17,6 +17,124 @@
         var refusePageURL = "https://dominatehermind.github.io/dominatehermind/downsell.html";
     </script>
     <script src="https://snippets.kirvano.com/upsell.min.js"></script>
+    <style>
+          /* Estilo para botão principal de aceitar oferta */
+        .btn-upsell.kirvano-payment-trigger {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white !important;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 18px 36px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-upsell.kirvano-payment-trigger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-upsell.kirvano-payment-trigger:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-upsell.kirvano-payment-trigger::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn-upsell.kirvano-payment-trigger:hover::after {
+            opacity: 1;
+        }
+        
+        /* Efeito de pulsar para destaque */
+        @keyframes pulse-border {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 107, 107, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+            }
+        }
+        
+        .pulse-cta {
+            animation: pulse-border 2s infinite;
+        }
+        
+        /* Estilo para botão de recusa */
+        .kirvano-refuse-trigger {
+            display: inline-block;
+            background-color: transparent;
+            color: #777 !important;
+            font-size: 15px;
+            padding: 12px 24px;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            position: relative;
+        }
+        
+        .kirvano-refuse-trigger:hover {
+            background-color: #f9f9f9;
+            color: #555 !important;
+        }
+        
+        .kirvano-refuse-trigger::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #555;
+            transition: width 0.3s ease;
+        }
+        
+        .kirvano-refuse-trigger:hover::before {
+            width: 100%;
+        }
+        
+        /* Controle de responsividade */
+        @media (max-width: 768px) {
+            .btn-upsell.kirvano-payment-trigger {
+                padding: 15px 30px;
+                font-size: 16px;
+                width: 100%;
+            }
+            
+            .kirvano-refuse-trigger {
+                padding: 10px 20px;
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- SEÇÃO HERO -->
