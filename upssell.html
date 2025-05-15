@@ -100,8 +100,8 @@
                     </div>
                 </div>
                 
-                <a href="https://pay.kirvano.com/64e583b2-7a01-40db-a136-b967514ca5c5" class="btn-upsell pulse-cta">QUERO APROVEITAR AGORA</a>
-                
+                    <button class="kirvano-payment-trigger">Comprar Agora</button>
+                    <button class="kirvano-refuse-trigger">Recusar Oferta</button>
          
             </div>
         </div>
@@ -273,5 +273,29 @@
         });
     </script>
 
+      <script>
+        var offer = "64e583b2-7a01-40db-a136-b967514ca5c5";
+        var nextPageURL = "https://dominatehermind.github.io/dominatehermind/upssell.html";
+        var refusePageURL = "https://dominatehermind.github.io/dominatehermind/downsell.html";
+      </script>
+      <script src="https://snippets.kirvano.com/upsell.min.js"></script>
+
+      <!--
+      INSTRUÇÕES:
+
+      Para abrir o modal do upsell, basta adicionar a classe "kirvano-payment-trigger" no(s) elemento(s)
+      da página que vão executar a ação de compra.
+
+      Exemplo:
+      <button class="kirvano-payment-trigger">Sim, eu aceito essa oferta especial!</button>
+
+      Da mesma forma, para rejeitar a oferta, adicione a classe "kirvano-refuse-trigger"
+      no(s) elemento(s) por essa ação. Dependendo de como sua estratégia foi configurada,
+      o cliente será direcionado para uma nova oferta  ou para a "Página de obrigado" da Kirvano.
+
+      Exemplo:
+      <button class="kirvano-refuse-trigger">Não, eu gostaria de recusar essa oferta</button>
+      -->
+    
 </body>
 </html>
