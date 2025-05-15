@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Seduction System - Acesso Premium</title>
+  <link rel="stylesheet" href="upsell2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HERO HEADER -->
+  <header class="hero-section premium visible">
+    <div class="container">
+      <h1 class="headline gradient-text">ÚLTIMA CHANCE DE ACESSAR O NÍVEL MÁXIMO DE DOMINAÇÃO PSICOLÓGICA</h1>
+      <p class="subheadline shimmer">O conteúdo que separa os homens que imploram por atenção daqueles que controlam os desejos femininos sem dizer uma palavra.</p>
+    </div>
+  </header>
+
+  <!-- PREMIUM VIDEO DEMO -->
+  <section class="premium-video visible">
+    <div class="container">
+      <video class="video-box glow" controls poster="ultimate-cover.jpg">
+        <source src="ultimate-demo.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
+  </section>
+
+  <!-- HACKS AVANÇADOS -->
+  <section class="premium-hacks visible">
+    <div class="container">
+      <h2 class="gradient-text">O Que Este E-book Revela</h2>
+      <ul class="hacks-list">
+        <li><strong>Gatilho da Obsessão Emocional:</strong> Crie uma âncora psicológica na mente dela. Ela vai pensar em você mesmo quando não quiser.</li>
+        <li><strong>Controle de Recompensa:</strong> Mude como ela responde ao seu silêncio. Uma ausência que grita dentro dela.</li>
+        <li><strong>Autoridade Não-Verbal:</strong> Como dominar o ambiente com um único olhar. Nenhuma palavra. Só impacto.</li>
+        <li><strong>Implante de Narrativa:</strong> Faça ela contar para as amigas que VOCÊ é diferente. Você nem precisa provar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OFERTA PREMIUM -->
+  <section class="oferta-premium visible">
+    <div class="container">
+      <h2 class="shine">Essa Oferta Não Volta</h2>
+      <p class="preco-texto">De <span class="preco-antigo">R$197,00</span> por apenas <span class="preco-atual">R$49,90</span></p>
+      <p class="urgencia pulse">Você vai se arrepender se sair desta página agora.</p>
+      <div id="countdown" class="countdown shimmer"></div>
+      <a href="https://pay.kirvano.com/84136130-92cb-4cf9-8a31-89ce67c43cc9" class="btn-premium pulse">QUERO DOMINAR AGORA</a>
+    </div>
+  </section>
+
+  <!-- GARANTIA EXTENDIDA -->
+  <section class="garantia-premium visible">
+    <div class="container">
+      <h2>Garantia Incondicional de 7 Dias</h2>
+      <p>Se em 7 dias você não sentir que está no controle do jogo, a gente te reembolsa. Simples. Direto. Sem enrolação.</p>
+      <img src="garantia.png" alt="Selo de Garantia Premium" class="garantia-img" />
+    </div>
+  </section>
+
+  <!-- FAQ - CONTEÚDO DO EBOOK -->
+  <section class="faq-premium visible">
+    <div class="container">
+      <h2 class="gradient-text">Dentro deste eBook Premium, Você Vai Aprender:</h2>
+      <div class="faq-item">
+        <h3 class="faq-question">1. Como deixar ela emocionalmente viciada em você</h3>
+        <div class="faq-answer">Técnicas testadas por especialistas para criar apego emocional intenso e involuntário.</div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">2. O código secreto da linguagem não-verbal</h3>
+        <div class="faq-answer">Você vai aprender a comunicar domínio sem dizer uma única palavra.</div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">3. O sistema de silêncio estratégico</h3>
+        <div class="faq-answer">Use o silêncio como arma. Uma ausência bem aplicada vale mais que mil mensagens.</div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">4. Como hackear a narrativa emocional dela</h3>
+        <div class="faq-answer">Ela vai começar a contar uma nova história... e você é o protagonista.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-premium">
+    <div class="container">
+      <p>&copy; 2025 Ultimate Seduction System. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal Elements
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.visible').forEach(el => observer.observe(el));
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.classList.toggle('active');
+        const answer = q.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Countdown Timer
+    const end = new Date();
+    end.setMinutes(end.getMinutes() + 90);
+    const countdown = document.getElementById('countdown');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = end - now;
+      if (diff <= 0) {
+        countdown.innerHTML = "Oferta encerrada";
+        return;
+      }
+      const h = Math.floor(diff / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      countdown.innerHTML = `Termina em: ${h}h ${m}m ${s}s`;
+    }
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
