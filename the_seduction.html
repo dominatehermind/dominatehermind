@@ -227,10 +227,10 @@
                     </div>
                 </div>
                 
-               <a href="#" class="btn-upsell pulse-cta kirvano-payment-trigger">QUERO APROVEITAR AGORA</a>
+               <a href="javascript:void(0)" class="btn-upsell pulse-cta kirvano-payment-trigger">QUERO APROVEITAR AGORA</a>
                 
                 <div style="text-align: center; margin-top: 20px;">
-                   <a href="#" class="kirvano-refuse-trigger">Não, obrigado. Prefiro recusar essa oferta.</a>
+                   <a href="javascript:void(0)" class="kirvano-refuse-trigger">Não, obrigado. Prefiro recusar essa oferta.</a>
                 </div>
          
             </div>
@@ -297,9 +297,9 @@
     <!-- BOTÃO FINAL CTA -->
     <section class="oferta-upsell" style="padding-top: 0;">
         <div class="container">
-            <a  class="btn-upsell pulse-cta kirvano-payment-trigger" style="margin-top: 0;">SIM, QUERO APROVEITAR ESTA OFERTA</a>
+            <a href="javascript:void(0)" class="btn-upsell pulse-cta kirvano-payment-trigger" style="margin-top: 0;">SIM, QUERO APROVEITAR ESTA OFERTA</a>
             <div style="text-align: center; margin-top: 20px;">
-                <a  class="kirvano-refuse-trigger">Não, obrigado. Prefiro continuar sem o acesso premium.</a>
+                <a href="javascript:void(0)" class="kirvano-refuse-trigger">Não, obrigado. Prefiro continuar sem o acesso premium.</a>
             </div>
         </div>
     </section>
@@ -405,11 +405,47 @@
         });
     </script>
     
-      <script>
-        var offer = "64e583b2-7a01-40db-a136-b967514ca5c5";
-        var nextPageURL = "https://dominatehermind.github.io/dominatehermind/upssell.html";
-        var refusePageURL = "https://dominatehermind.github.io/dominatehermind/downsell.html";
+    <script>
+        // Configuração da Kirvano
+        window.kirvanoConfig = {
+            offer: "64e583b2-7a01-40db-a136-b967514ca5c5",
+            nextPageURL: "https://dominatehermind.github.io/dominatehermind/upssell.html",
+            refusePageURL: "https://dominatehermind.github.io/dominatehermind/downsell.html"
+        };
     </script>
-     <script src="https://snippets.kirvano.com/upsell.min.js"></script>
+    <script src="https://snippets.kirvano.com/upsell.min.js"></script>
+
+    <!-- Script adicional para garantir funcionamento dos botões -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Função para manipular os cliques nos botões da Kirvano manualmente
+            function setupKirvanoButtons() {
+                // Configurar botões de pagamento
+                const paymentButtons = document.querySelectorAll('.kirvano-payment-trigger');
+                paymentButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (window.kirvanoConfig && window.kirvanoConfig.nextPageURL) {
+                            window.location.href = window.kirvanoConfig.nextPageURL;
+                        }
+                    });
+                });
+                
+                // Configurar botões de recusa
+                const refuseButtons = document.querySelectorAll('.kirvano-refuse-trigger');
+                refuseButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (window.kirvanoConfig && window.kirvanoConfig.refusePageURL) {
+                            window.location.href = window.kirvanoConfig.refusePageURL;
+                        }
+                    });
+                });
+            }
+            
+            // Esperar um pouco para garantir que o script da Kirvano já foi carregado
+            setTimeout(setupKirvanoButtons, 1000);
+        });
+    </script>
 </body>
 </html>
