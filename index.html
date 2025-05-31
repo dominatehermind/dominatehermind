@@ -199,7 +199,7 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
         </div>
       </div>
       <div class="why-us-item">
-        <div class="way-us-icon">
+        <div class="why-us-icon">
           <i class="fas fa-check"></i>
         </div>
         <div class="why-us-content">
@@ -237,9 +237,8 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
     </div>
   </div>
 </footer>
-
-<link rel="stylesheet" href="style.css">
 <style>
+
 /* Estilos para a nova seção de produto gratuito */
 .free-product {
   background: linear-gradient(0deg, #000 0%, #111 100%);
@@ -292,7 +291,7 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
 }
 
 .free-product h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Georgia', serif;
   color: #fff;
   font-size: 42px;
   font-weight: 700;
@@ -301,7 +300,7 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
 }
 
 .free-product h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Georgia', serif;
   color: #ff357a;
   font-size: 36px;
   font-weight: 900;
@@ -343,54 +342,19 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
   color: #ff357a;
 }
 
-/* Ajustes no formulário */
-.form-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 16px;
-  margin-bottom: 25px;
-  font-weight: 400;
-}
-
-.form-guarantee {
-  color: #fff172;
-  font-size: 14px;
-  margin-top: 15px;
-  text-align: center;
-  font-weight: 500;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .free-product h2 {
-    font-size: 32px;
-  }
-  
-  .free-product h3 {
-    font-size: 28px;
-  }
-  
-  .free-product-benefits {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  
-  .free-benefit {
-    justify-content: center;
-  }
-}
 </style>
 
 <script>
-// Função para baixar o PDF existente
+// Função para baixar o PDF do GitHub
 function downloadPDF() {
-  // Substitua 'caminho-do-seu-pdf.pdf' pelo caminho real do seu PDF
-  const pdfUrl = 'https://github.com/dominatehermind/dominatehermind/blob/c5a5c7e1b5705376653ce511bdfbe95599446686/%F0%9F%94%A5%20The%2030%20Copy%20%26%20Paste%20Messages.pdf'; // COLOQUE AQUI O LINK DO SEU PDF
+  // Link correto do PDF no GitHub (raw link)
+  const pdfUrl = 'https://github.com/dominatehermind/dominatehermind/raw/c5a5c7e1b5705376653ce511bdfbe95599446686/%F0%9F%94%A5%20The%2030%20Copy%20%26%20Paste%20Messages.pdf';
   
   // Cria um link temporário para download
   const link = document.createElement('a');
   link.href = pdfUrl;
   link.download = '30-Mensagens-Para-Despertar-Atracao.pdf';
+  link.target = '_blank'; // Abre em nova aba
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -400,22 +364,77 @@ function downloadPDF() {
 document.getElementById('leadForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  // Baixa o PDF existente
+  // Mostra mensagem de carregamento
+  const submitButton = this.querySelector('input[type="submit"]');
+  const originalText = submitButton.value;
+  submitButton.value = 'ENVIANDO...';
+  submitButton.disabled = true;
+  
+  // Baixa o PDF
   downloadPDF();
   
-  // Aguarda um pouco para o download iniciar, depois envia o formulário
-  setTimeout(() => {
-    // Envia o formulário original
-    this.submit();
-  }, 1000);
+  // Coleta os dados do formulário
+  const formData = new FormData(this);
+  
+  // Envia o formulário
+  fetch(this.action, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      // Aguarda 2 segundos e redireciona para a página de vendas
+      setTimeout(() => {
+        window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
+      }, 2000);
+    } else {
+      // Se der erro no envio, ainda assim redireciona (para não perder a conversão)
+      setTimeout(() => {
+        window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
+      }, 2000);
+    }
+  })
+  .catch(error => {
+    console.log('Erro no envio:', error);
+    // Mesmo com erro, redireciona para não perder a conversão
+    setTimeout(() => {
+      window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
+    }, 2000);
+  });
 });
 
-<!-- Faz scroll para o formulário quando clicar no CTA -->
-<script>
+// Faz scroll para o formulário quando clicar no CTA
 document.querySelector('.cta-button').addEventListener('click', function(e) {
   e.preventDefault();
   document.querySelector('.form-section').scrollIntoView({ 
     behavior: 'smooth' 
+  });
+});
+
+// Adiciona efeito de carregamento visual
+document.addEventListener('DOMContentLoaded', function() {
+  // Animação de entrada para elementos
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  // Aplica a animação em elementos específicos
+  const elementsToAnimate = document.querySelectorAll('.benefit-card, .testimonial-card, .why-us-item');
+  elementsToAnimate.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
   });
 });
 </script>
