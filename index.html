@@ -84,7 +84,7 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
     <i style="--clr:#00ff0a;"></i>
     <i style="--clr:#ff0057;"></i> 
     <i style="--clr:#fffd44;"></i>
-    <form action="https://formsubmit.co/dominate.hr.mind@gmail.com" method="POST" class="login">
+    <form id="leadForm" action="https://formsubmit.co/dominate.hr.mind@gmail.com" method="POST" class="login">
       <input type="hidden" name="_next" value="https://dominatehermind.github.io/dominatehermind/vendas.html">
       <input type="hidden" name="_captcha" value="false">
       <h2>Baixe o Guia</h2>
@@ -99,7 +99,7 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
         <input type="text" name="telefone" placeholder="Telefone" required>
       </div>
       <div class="inputBx">
-      <input type="submit" href="https://dominatehermind.github.io/dominatehermind/vendas.html" value="QUERO MEU GUIA GRATUITO">
+      <input type="submit" value="QUERO MEU GUIA GRATUITO">
       </div>
       <p class="form-guarantee">🔒 Seus dados estão 100% seguros conosco</p>
     </form>
@@ -380,6 +380,45 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
   }
 }
 </style>
+
+<script>
+// Função para baixar o PDF existente
+function downloadPDF() {
+  // Substitua 'caminho-do-seu-pdf.pdf' pelo caminho real do seu PDF
+  const pdfUrl = 'https://github.com/dominatehermind/dominatehermind/blob/c5a5c7e1b5705376653ce511bdfbe95599446686/%F0%9F%94%A5%20The%2030%20Copy%20%26%20Paste%20Messages.pdf'; // COLOQUE AQUI O LINK DO SEU PDF
+  
+  // Cria um link temporário para download
+  const link = document.createElement('a');
+  link.href = pdfUrl;
+  link.download = '30-Mensagens-Para-Despertar-Atracao.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Intercepta o envio do formulário
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Baixa o PDF existente
+  downloadPDF();
+  
+  // Aguarda um pouco para o download iniciar, depois envia o formulário
+  setTimeout(() => {
+    // Envia o formulário original
+    this.submit();
+  }, 1000);
+});
+
+<!-- Faz scroll para o formulário quando clicar no CTA -->
+<script>
+document.querySelector('.cta-button').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.querySelector('.form-section').scrollIntoView({ 
+    behavior: 'smooth' 
+  });
+});
+</script>
 
 </body>
 </html>
