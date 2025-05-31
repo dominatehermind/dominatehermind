@@ -345,16 +345,14 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
 </style>
 
 <script>
+<script>
 // Função para baixar o PDF do GitHub
 function downloadPDF() {
-  // Link correto do PDF no GitHub (raw link)
-  const pdfUrl = 'https://github.com/dominatehermind/dominatehermind/raw/c5a5c7e1b5705376653ce511bdfbe95599446686/%F0%9F%94%A5%20The%2030%20Copy%20%26%20Paste%20Messages.pdf';
-  
-  // Cria um link temporário para download
+  const pdfUrl = 'https://github.com/dominatehermind/dominatehermind/raw/main/30-Mensagens-Para-Despertar-Atracao.pdf';
+
   const link = document.createElement('a');
   link.href = pdfUrl;
   link.download = '30-Mensagens-Para-Despertar-Atracao.pdf';
-  link.target = '_blank'; // Abre em nova aba
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -363,47 +361,39 @@ function downloadPDF() {
 // Intercepta o envio do formulário
 document.getElementById('leadForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  
-  // Mostra mensagem de carregamento
+
   const submitButton = this.querySelector('input[type="submit"]');
   const originalText = submitButton.value;
   submitButton.value = 'ENVIANDO...';
   submitButton.disabled = true;
-  
-  // Baixa o PDF
-  downloadPDF();
-  
-  // Coleta os dados do formulário
+
   const formData = new FormData(this);
-  
-  // Envia o formulário
+
   fetch(this.action, {
     method: 'POST',
     body: formData
   })
   .then(response => {
-    if (response.ok) {
-      // Aguarda 2 segundos e redireciona para a página de vendas
-      setTimeout(() => {
-        window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
-      }, 2000);
-    } else {
-      // Se der erro no envio, ainda assim redireciona (para não perder a conversão)
-      setTimeout(() => {
-        window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
-      }, 2000);
-    }
+    // Faz download sem abrir nova aba
+    downloadPDF();
+
+    // Redireciona após 2 segundos
+    setTimeout(() => {
+      window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
+    }, 2000);
   })
   .catch(error => {
-    console.log('Erro no envio:', error);
-    // Mesmo com erro, redireciona para não perder a conversão
+    console.error('Erro ao enviar:', error);
+
+    // Mesmo com erro, ainda redireciona
+    downloadPDF();
     setTimeout(() => {
       window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
     }, 2000);
   });
 });
 
-// Faz scroll para o formulário quando clicar no CTA
+// Scroll suave até o formulário ao clicar no botão final
 document.querySelector('.cta-button').addEventListener('click', function(e) {
   e.preventDefault();
   document.querySelector('.form-section').scrollIntoView({ 
@@ -411,14 +401,13 @@ document.querySelector('.cta-button').addEventListener('click', function(e) {
   });
 });
 
-// Adiciona efeito de carregamento visual
+// Animações ao rolar
 document.addEventListener('DOMContentLoaded', function() {
-  // Animação de entrada para elementos
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   };
-  
+
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -427,8 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, observerOptions);
-  
-  // Aplica a animação em elementos específicos
+
   const elementsToAnimate = document.querySelectorAll('.benefit-card, .testimonial-card, .why-us-item');
   elementsToAnimate.forEach(el => {
     el.style.opacity = '0';
