@@ -13,7 +13,6 @@
 var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-
   ttq.load('D0JNT73C77U48C85KVAG');
   ttq.page();
 }(window, document, 'ttq');
@@ -47,6 +46,38 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- Free Product Section -->
+<section class="free-product">
+  <div class="container">
+    <div class="free-product-content">
+      <div class="free-product-badge">
+        <i class="fas fa-gift"></i>
+        <span>100% GRATUITO</span>
+      </div>
+      <h2>RECEBA AGORA O GUIA SECRETO:</h2>
+      <h3>"5 FRASES QUE FAZEM QUALQUER MULHER TE PERSEGUIR"</h3>
+      <div class="free-product-benefits">
+        <div class="free-benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>Testado em mais de 1.000 homens</span>
+        </div>
+        <div class="free-benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>Funciona em qualquer situação</span>
+        </div>
+        <div class="free-benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>Resultado em menos de 24h</span>
+        </div>
+      </div>
+      <p class="free-product-desc">
+        <strong>Atenção:</strong> Esse material vai direto para poucos homens. Não é para qualquer um. 
+        É para quem está cansado de ser tratado como opção e quer virar prioridade.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- Form Section -->
 <section class="form-section">
   <div class="ring">
@@ -56,7 +87,8 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
     <form action="https://formsubmit.co/dominate.hr.mind@gmail.com" method="POST" class="login">
       <input type="hidden" name="_next" value="https://dominatehermind.github.io/dominatehermind/vendas.html">
       <input type="hidden" name="_captcha" value="false">
-      <h2>Domine a mente das mulheres</h2>
+      <h2>Baixe o Guia Gratuito Agora</h2>
+      <p class="form-subtitle">Preencha os dados e receba instantaneamente</p>
       <div class="inputBx">
         <input type="text" name="nome" placeholder="Nome completo" required>
       </div>
@@ -67,10 +99,9 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
         <input type="text" name="telefone" placeholder="Telefone" required>
       </div>
       <div class="inputBx">
-      <input type="submit" href="https://dominatehermind.github.io/dominatehermind/vendas.html" value="QUERO ENTRAR AGORA">
-
-
+      <input type="submit" href="https://dominatehermind.github.io/dominatehermind/vendas.html" value="QUERO MEU GUIA GRATUITO">
       </div>
+      <p class="form-guarantee">🔒 Seus dados estão 100% seguros conosco</p>
     </form>
   </div>
 </section>
@@ -168,7 +199,7 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
         </div>
       </div>
       <div class="why-us-item">
-        <div class="why-us-icon">
+        <div class="way-us-icon">
           <i class="fas fa-check"></i>
         </div>
         <div class="why-us-content">
@@ -206,5 +237,149 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
     </div>
   </div>
 </footer>
+
+<link rel="stylesheet" href="style.css">
+<style>
+/* Estilos para a nova seção de produto gratuito */
+.free-product {
+  background: linear-gradient(0deg, #000 0%, #111 100%);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.free-product::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 53, 122, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.free-product-content {
+  position: relative;
+  z-index: 2;
+}
+
+.free-product-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #ff357a, #fff172);
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 20px rgba(255, 53, 122, 0.3);
+  animation: pulse 2s infinite;
+  text-transform: uppercase;
+}
+
+.free-product-badge i {
+  font-size: 16px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.free-product h2 {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.free-product h3 {
+  font-family: 'Playfair Display', serif;
+  color: #ff357a;
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.free-product-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.free-benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.free-benefit i {
+  color: #fff172;
+  font-size: 18px;
+}
+
+.free-product-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.free-product-desc strong {
+  color: #ff357a;
+}
+
+/* Ajustes no formulário */
+.form-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+.form-guarantee {
+  color: #fff172;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .free-product h2 {
+    font-size: 32px;
+  }
+  
+  .free-product h3 {
+    font-size: 28px;
+  }
+  
+  .free-product-benefits {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .free-benefit {
+    justify-content: center;
+  }
+}
+</style>
+
 </body>
 </html>
