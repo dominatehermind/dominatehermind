@@ -345,12 +345,12 @@ src="https://www.facebook.com/tr?id=1059188669420334&ev=PageView&noscript=1"
 </style>
 
 <script>
-// Função para baixar o PDF direto do GitHub
+// Função para baixar o PDF sem abrir nova aba
 function downloadPDF() {
   const link = document.createElement('a');
   link.href = 'https://raw.githubusercontent.com/dominatehermind/dominatehermind/743b6ba112b7af46d5b48e746ce8a2a519c24acb/%F0%9F%94%A5%20The%2030%20Copy%20%26%20Paste%20Messages.pdf';
   link.download = '30-mensagens.pdf';
-  link.target = '_blank';
+  link.style.display = 'none'; // Oculta o link
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -365,37 +365,31 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
   submitButton.value = 'ENVIANDO...';
   submitButton.disabled = true;
 
-  downloadPDF(); // Faz o download do guia imediatamente
+  // Inicia o download imediatamente
+  downloadPDF();
 
   const formData = new FormData(this);
 
   fetch(this.action, {
     method: 'POST',
     body: formData
-  })
-  .finally(() => {
-    // Em todos os casos, redireciona após 2 segundos
+  }).finally(() => {
+    // Redireciona normalmente após 2 segundos
     setTimeout(() => {
       window.location.href = 'https://dominatehermind.github.io/dominatehermind/vendas.html';
     }, 2000);
   });
 });
 
-// Faz scroll suave até o formulário ao clicar no botão
+// Scroll suave ao clicar no botão
 document.querySelector('.cta-button').addEventListener('click', function(e) {
   e.preventDefault();
-  document.querySelector('.form-section').scrollIntoView({
-    behavior: 'smooth'
-  });
+  document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
 });
 
-// Animação de entrada nos elementos da página
+// Animações
 document.addEventListener('DOMContentLoaded', function() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
